@@ -3,6 +3,8 @@ let hasFlippedCard = false;
 let firstClick, secondClick;
 let clickedCards = [];
 let clear = false;
+var playFlip = document.getElementById("playFlip");
+var playUnFlip = document.getElementById("playUnFlip");
 
 function flipCard() {
     if (!hasFlippedCard) {
@@ -28,10 +30,9 @@ function flipCard() {
 
 function flipCards(click, second = false) {
     click?.classList.add('flip');
+    click.classList.contains("flip") && playFlip.play();
 
-    if (second) {
-        hasFlippedCard = false;
-    }
+    second && (hasFlippedCard = false)
 }
 
 function checkCards(click) {
@@ -42,7 +43,8 @@ function checkCards(click) {
 
 function unFlipCards(hasFlippedCard = false, random = true) {
     if (hasFlippedCard) {
-        firstClick.classList.remove('flip');
+        firstClick.classList.remove('flip')
+        !firstClick.classList.contains("flip") && playUnFlip.play();
 
         var myIndex = clickedCards.indexOf(firstClick.dataset.name);
         if (myIndex !== -1) {

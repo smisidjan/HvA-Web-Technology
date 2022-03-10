@@ -1,0 +1,154 @@
+/* Main styles */
+h2 {
+    background-color: powderblue;
+}
+
+p {
+    color: blue;
+}
+
+.list {
+    color: blue;
+}
+
+.link {
+    color: blueviolet;
+}
+
+* {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.wrap {
+    width: 100%;
+}
+
+body {
+    background-image: url("../../images/ocean.jpeg");
+    background-repeat: repeat-y;
+    background-size: 100%;
+    min-height: 80%;
+}
+
+header {
+    padding: 10px;
+    margin-top: 5%;
+    text-align: center;
+    background-color: blue;
+    color: powderblue;
+}
+
+/* Index.html styles */
+.game {
+    display: flex;
+    width: 100%;
+    height: 600px;
+    margin: auto;
+    flex-wrap: wrap;
+    transform: scale(1);
+    perspective: 1000px;
+}
+
+.memory-card {
+    width: calc(15% - 5px);
+    height: calc(30% - 5px);
+    margin: 10px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+@media screen and (max-width: 1200px) {
+    .memory-card {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .memory-card {
+        width: 45%;
+        height: 60%;
+    }
+    .game {
+        width: 1000px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .memory-card {
+        width: 55%;
+        height: 60%;
+    }
+}
+
+.memory-card:active {
+    transform: scale(.97);
+    transition: .2s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front,
+.back {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    position: absolute;
+    border-radius: 5px;
+    background-color: lightblue;
+    backface-visibility: hidden;
+}
+
+.front {
+    transform: rotateY(180deg);
+}
+
+.list {
+    text-align: initial;
+    list-style-image: url("../../images/list_icon.jpg");
+    margin: 20px;
+    padding-bottom: 100px;
+}
+
+/* Hall_of_fame.html styles */
+th, td {
+    text-align: center;
+}
+
+th {
+    border: blue 1px solid;
+    background-color: powderblue;
+    color: darkslateblue;
+}
+
+table {
+    min-width: 500px;
+    min-height: 200px;
+    float: inside;
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+tr {
+    cursor: pointer;
+    transition: all .25s ease-in-out
+}
+
+.selected {
+    background-color: blue;
+    font-weight: bold;
+    color: powderblue;
+    border: darkslateblue 1px solid;
+}
+
+.unselected {
+    border: blue 1px solid;
+    background-color: powderblue;
+    color: darkslateblue;
+}

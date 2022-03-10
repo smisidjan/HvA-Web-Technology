@@ -1,10 +1,102 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="css/memory.css">
 </head>
 <body>
-Hello World
+<header><h1>Memory game</h1></header>
+<div class="wrap">
+    <button onclick="unFlipCards(true, false)">Refresh</button>
+    <div class="game">
+        <div class="memory-card" data-name="card_1">
+            <img class="front" src="../icons/card_1.jpg" alt="card_1">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+        <div class="memory-card" data-name="card_1_1">
+            <img class="front" src="../icons/card_1.jpg" alt="card_1">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+        <div class="memory-card" data-name="card_2">
+            <img class="front" src="../icons/card_2.jpg" alt="card_2">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+        <div class="memory-card" data-name="card_2_2">
+            <img class="front" src="../icons/card_2.jpg" alt="card_2">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+        <div class="memory-card" data-name="card_3">
+            <img class="front" src="../icons/card_3.jpg" alt="card_3">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+        <div class="memory-card" data-name="card_3_3">
+            <img class="front" src="../icons/card_3.jpg" alt="card_3">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+        <div class="memory-card" data-name="card_4">
+            <img class="front" src="../icons/card_4.jpg" alt="card_4">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+        <div class="memory-card" data-name="card_4_4">
+            <img class="front" src="../icons/card_4.jpg" alt="card_4">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+        <div class="memory-card" data-name="card_5">
+            <img class="front" src="../icons/card_5.jpg" alt="card_5">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+        <div class="memory-card" data-name="card_5_5">
+            <img class="front" src="../icons/card_5.jpg" alt="card_5">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+        <div class="memory-card" data-name="card_6_6">
+            <img class="front" src="../icons/card_6.jpg" alt="card_6">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+        <div class="memory-card" data-name="card_6">
+            <img class="front" src="../icons/card_6.jpg" alt="card_6">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+        <div class="memory-card" data-name="card_7">
+            <img class="front" src="../icons/card_7.jpg" alt="card_7">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+        <div class="memory-card" data-name="card_7_7">
+            <img class="front" src="../icons/card_7.jpg" alt="card_7">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+        <div class="memory-card" data-name="card_8">
+            <img class="front" src="../icons/card_8.jpg" alt="card_8">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+        <div class="memory-card" data-name="card_8_8">
+            <img class="front" src="../icons/card_8.jpg" alt="card_8">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+        <div class="memory-card" data-name="card_9">
+            <img class="front" src="../icons/card_9.jpg" alt="card_9">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+        <div class="memory-card" data-name="card_9_9">
+            <img class="front" src="../icons/card_9.jpg" alt="card_9">
+            <img class="back" src="../icons/background.jpeg" alt="background">
+        </div>
+    </div>
+</div>
+<div class="info-links">
+    <p>Bekijk hier onze <a class="link" href="hall_of_fame.html">Hall of Fame</a></p>
+    <p></p>
+
+    <details>
+        <summary>Lees hier interessate informatie over memory games:</summary>
+        <ul class="list">
+            <li>De <a class="link" href="https://www.speluitleg.com/memory/">spelregels</a></li>
+            <li>Memory op <a class="link" href="https://nl.wikipedia.org/wiki/Memory">Wikipedia</a></li>
+            <li>De <a class="link" href="http://www.driwa.org/cafekidz/memoryinfo.htm">Duitse memory game</a></li>
+        </ul>
+    </details>
+</div>
+<script src="js/memory.js"></script>
 </body>
 </html>

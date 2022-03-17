@@ -3,40 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Memory Game</title>
-    <link rel="stylesheet" href="./css/hall_of_fame.css">
-    <link rel="stylesheet" href="./css/general.css">
+    <link rel="stylesheet" href="css/hall_of_fame.css">
+    <link rel="stylesheet" href="css/general.css">
+    <script type="application/json" src="scores.json"></script>
+    <script src="js/hall_of_fame.js"></script>
 </head>
+
 <body>
+<script>
+
+</script>
 <header><h1>Memory Hall of Fame</h1></header>
+
 <div class="wrap">
     <div class="border">
+        <form name="myForm">
+            <label for="cards">Spelgrootte (aantal kaartjes): </label>
+            <select name="cards" id="cards" onchange="render_table(this.value)">
+                <option value="0"></option>
+            </select><br>
+
+            <button type="submit">Delete input</button>
+        </form>
         <table id="table">
+            <thead>
             <tr>
                 <th>Rang:</th>
                 <th>Naam:</th>
+                <th>Datum:</th>
+                <th>Aantal kaarten:</th>
                 <th>Aantal beurten:</th>
+                <th>Tijd:</th>
             </tr>
-            <tr>
-                <td>1e</td>
-                <td>Nadine</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>2e</td>
-                <td>Mees</td>
-                <td>6</td>
-            </tr>
-            <tr>
-                <td>3e</td>
-                <td>Julia</td>
-                <td>8</td>
-            </tr>
+            </thead>
+            <tbody id="js-table"></tbody>
         </table>
     </div>
     <br>
     <p>Speel <a class="link" href="index.html">hier</a> het spel</p>
     <p>Neem deel <a class="link" href="toernooi.html">hier</a> aan het toernooi</p>
 </div>
-<script src="js/hall_of_fame.js"></script>
 </body>
 </html>

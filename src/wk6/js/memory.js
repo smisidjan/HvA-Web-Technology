@@ -7,13 +7,15 @@ let player1Beurt = true;
 let player2Beurt = false;
 let player1Score = 0;
 let player2Score = 0;
-
+var playFlip = document.getElementById("playFlip");
+var playUnFlip = document.getElementById("playUnFlip");
 
 function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return;
 
     this.classList.add('flip');
+    this.classList.contains("flip") && playFlip.play();
 
     if (!hasFlippedCard) {
         //eerste klik
@@ -24,6 +26,7 @@ function flipCard() {
     }
     //tweede klik
     secondCard = this;
+    secondCard.classList.contains("flip") && playFlip.play();
 
     aanDeBeurt();
     checksMatch();
@@ -112,6 +115,8 @@ function unflippedCards() {
     setTimeout(() => {
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
+        !firstCard.classList.contains("flip") && playUnFlip.play();
+        !secondCard.classList.contains("flip") && playUnFlip.play();
 
         resetBoard();
     }, 1500);

@@ -1,0 +1,20 @@
+/* Main styles */
+h2 {background-color: powderblue;}
+p   {color: blue;}
+.list {color: blue;}
+.link {color: blueviolet;}
+* {box-sizing: border-box;}
+body {
+    background-image: url("../../images/ocean.jpeg");
+    background-repeat: repeat-y;
+    background-size: 100%;
+    min-height: 80%;
+}
+
+header {
+    padding: 10px;
+    margin-top: 5%;
+    text-align: center;
+    background-color: blue;
+    color: powderblue;
+}

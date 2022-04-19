@@ -1,67 +1,65 @@
-{
-  "spelresultaten" : [
-    {
-      "naam": "Nadine",
-      "datum": "10-03-2022",
-      "numberOfcards": 16,
-      "numberOfTurns": 4,
-      "time": "03:23"
-    },
-    {
-      "naam": "Mees",
-      "datum": "11-03-2022",
-      "numberOfcards": 14,
-      "numberOfTurns": 6,
-      "time": "03:23"
-    },
-    {
-      "naam": "Julia",
-      "datum": "10-03-2022",
-      "numberOfcards": 16,
-      "numberOfTurns": 5,
-      "time": "03:23"
-    },
-    {
-      "naam": "Barbara",
-      "datum": "10-03-2022",
-      "numberOfcards": 16,
-      "numberOfTurns": 6,
-      "time": "03:23"
-    },
-    {
-      "naam": "Nick",
-      "datum": "11-03-2022",
-      "numberOfcards": 14,
-      "numberOfTurns": 7,
-      "time": "03:23"
-    },
-    {
-      "naam": "Jean",
-      "datum": "11-03-2022",
-      "numberOfcards": 14,
-      "numberOfTurns": 8,
-      "time": "03:23"
-    },
-    {
-      "naam": "Mijke",
-      "datum": "12-03-2022",
-      "numberOfcards": 18,
-      "numberOfTurns": 8,
-      "time": "03:23"
-    },
-    {
-      "naam": "Janna",
-      "datum": "12-03-2022",
-      "numberOfcards": 18,
-      "numberOfTurns": 9,
-      "time": "03:23"
-    },
-    {
-      "naam": "Thomas",
-      "datum": "12-03-2022",
-      "numberOfcards": 18,
-      "numberOfTurns": 10,
-      "time": "03:23"
-    }
-  ]
-}
+[
+  {
+    "naam": "Nadine",
+    "datum": "10-03-2022",
+    "numberOfcards": 16,
+    "numberOfTurns": 4,
+    "time": "03:23"
+  },
+  {
+    "naam": "Mees",
+    "datum": "11-03-2022",
+    "numberOfcards": 14,
+    "numberOfTurns": 6,
+    "time": "03:23"
+  },
+  {
+    "naam": "Julia",
+    "datum": "10-03-2022",
+    "numberOfcards": 16,
+    "numberOfTurns": 5,
+    "time": "03:23"
+  },
+  {
+    "naam": "Barbara",
+    "datum": "10-03-2022",
+    "numberOfcards": 16,
+    "numberOfTurns": 6,
+    "time": "03:23"
+  },
+  {
+    "naam": "Nick",
+    "datum": "11-03-2022",
+    "numberOfcards": 14,
+    "numberOfTurns": 7,
+    "time": "03:23"
+  },
+  {
+    "naam": "Jean",
+    "datum": "11-03-2022",
+    "numberOfcards": 14,
+    "numberOfTurns": 8,
+    "time": "03:23"
+  },
+  {
+    "naam": "Mijke",
+    "datum": "12-03-2022",
+    "numberOfcards": 18,
+    "numberOfTurns": 8,
+    "time": "03:23"
+  },
+  {
+    "naam": "Janna",
+    "datum": "12-03-2022",
+    "numberOfcards": 18,
+    "numberOfTurns": 9,
+    "time": "03:23"
+  },
+  {
+    "naam": "Thomas",
+    "datum": "12-03-2022",
+    "numberOfcards": 18,
+    "numberOfTurns": 10,
+    "time": "03:23"
+  }
+]

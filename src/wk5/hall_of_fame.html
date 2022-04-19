@@ -17,17 +17,12 @@
 
 <div class="wrap">
     <div class="border">
-        <form name="myForm">
-            <label for="cards">Spelgrootte (aantal kaartjes): </label>
-            <select name="cards" id="cards" onchange="render_table(this.value)">
-                <option value="0"></option>
-            </select><br>
+        <label for="cards">Spelgrootte (aantal kaartjes): </label>
+        <select name="cards" id="cards" onchange="render_table()"></select><br>
 
-            <button type="submit">Delete input</button>
-        </form>
         <table id="table">
             <thead>
-            <tr>
+            <tr id="table-head">
                 <th>Rang:</th>
                 <th>Naam:</th>
                 <th>Datum:</th>

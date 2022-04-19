@@ -30,3 +30,8 @@ tr {
     border: darkslateblue 1px solid;
 }
 
+.selectedHead {
+    font-size: 35px;
+    text-decoration: underline #ffb8f5;
+}
+

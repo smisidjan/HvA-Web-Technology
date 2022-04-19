@@ -1,92 +1,118 @@
-function readTextFile(file, callback) {
-    let rawFile = new XMLHttpRequest();
-    rawFile.overrideMimeType("application/json");
-    rawFile.open("GET", file, true);
-    rawFile.onreadystatechange = function () {
-        if (rawFile.readyState === 4 && rawFile.status === 200) {
-            callback(rawFile.responseText);
-        }
-    }
-    rawFile.send(null);
-}
-
-function removeDuplicates(originalArray, prop) {
+function removeDuplicates(scores) {
     let newArray = [];
-    let lookupObject = {};
 
-    for (var i in originalArray) {
-        lookupObject[originalArray[i][prop]] = originalArray[i];
+    for (let i = 0; i < scores.length; i++) {
+        // sets all the numberOfcards values in an array
+        newArray.push(scores[i].numberOfcards)
     }
 
-    for (i in lookupObject) {
-        newArray.push(lookupObject[i]);
-    }
-    return newArray;
+    // filters the array and returns only unique items
+    // used stackoverflow for this solution: https://stackoverflow.com/questions/1960473/get-all-unique-values-in-a-javascript-array-remove-duplicates
+    let unique = newArray.filter((v, i, a) => a.indexOf(v) === i);
+
+    // sets the numbers highest to lowest
+    // used codegrepper for this solution: https://www.codegrepper.com/code-examples/javascript/sort+array+highest+to+lowest+javascript
+    return unique.sort((a, b) => b-a);
 }
 
-function render_options() {
-    readTextFile("./scores.json", function (text) {
-        let data = JSON.parse(text);
-        let sel = document.getElementById('cards');
-        let uniqueArray = removeDuplicates(data['spelresultaten'], "numberOfcards");
+function setSelectOptions(scores) {
+    // removes the duplicate values from numberOfcards in the scores array
+    let uniqueArray = removeDuplicates(scores);
+    let options = "";
 
-        for (let i = 0; i < uniqueArray.length; i++) {
-            let opt = document.createElement('option');
-            opt.innerHTML = uniqueArray[i]['numberOfcards'];
-            opt.value = uniqueArray[i]['numberOfcards'];
+    // loops through the unique array
+    for (let i = 0; i < uniqueArray.length; i++) {
+        // set an option element with the numberOfcards value and set it in options
+        options += "<option>" + uniqueArray[i] + "</option>";
+    }
 
-            sel.appendChild(opt);
+    // gets the select element with id cards
+    // sets the options in the innerHTML of the select
+    document.getElementById('cards').innerHTML = options;
+}
+
+// gets the json file and returns it
+async function getJson(url) {
+    let response = await fetch(url);
+    return response.json();
+}
+
+async function renderSelectOptions() {
+    let scores = await getJson('scores.json');
+    setSelectOptions(scores)
+}
+
+// renders the table when an option is selected
+renderSelectOptions().then(r => render_table())
+
+function generateTable(scores) {
+    let table = document.getElementById("js-table");
+    let index = 0;
+    for (let object of scores) {
+        // adds a row and cell for every item in the array with a number as value
+        let row = table.insertRow();
+        let cell = row.insertCell();
+        cell.innerHTML = index + 1;
+
+        // loops trough the object and gets an item
+        for (let item in object) {
+            // insert cell for every item with the item as value
+            let cell = row.insertCell();
+            cell.innerHTML = object[item];
         }
+        // adds 1 up for the rang
+        index++
+    }
+}
+
+function selectedRow() {
+    let table = document.getElementById("table");
+
+    // loops through the table rows and sets an onclick function on the rows
+    // then adds or deletes the class selected on the property with the toggle function
+    for (let i = 1; i < table.rows.length; i++) {
+        table.rows[i].addEventListener('click', function() {
+            table.rows[i].classList.toggle("selected");
+        });
+    }
+
+    // doing the same for the table head with a different class
+    let tableHead = document.getElementById("table-head");
+    tableHead.addEventListener('click', function() {
+        tableHead.classList.toggle("selectedHead");
     });
 }
 
-render_options()
+function unsetTable() {
+    // gets the table and table rows
+    let table = document.getElementById("js-table");
+    let tableRows = document.getElementById("js-table").rows;
 
-function render_table() {
-    let cards = document.forms["myForm"]["cards"].value;
+    // if its not the first time you select an option you have rows in youre table
+    // if so we deleting the entire table
+    if (tableRows.length > 0) {
+        table.remove();
 
-    readTextFile("./scores.json", function (text) {
-        let data = JSON.parse(text);
-        let table = document.querySelector("table");
+        // here we getting the table and setting a new tbody tag with id js-table
+        // in function generateTable() we need the tbody tag with id js-table to rerender the table
+        let newTable = document.getElementById("table");
+        let newBody = newTable.createTBody();
+        newBody.setAttribute("id", "js-table")
+    }
+}
 
-        let result = data['spelresultaten'].filter(obj => {
-            console.log(obj['numberOfcards'])
-            console.log({cards})
-            return obj.numberOfcards === parseInt(cards)
-        })
+async function render_table() {
+    // gets the value of the select option
+    let numberOfCardsSelect = document.getElementById('cards').value;
+    let scores = await getJson('scores.json');
 
-        function generateTable(table, data) {
-            let index = 0;
-            for (let element of data) {
-                let row = table.insertRow();
-                let newRangCell = row.insertCell();
-                let newRangText = document.createTextNode(index + 1);
-                newRangCell.appendChild(newRangText);
+    // filters the array
+    // returns the objects when numberOfcards is the same as the select value
+    let result = scores.filter(obj => {
+        return obj.numberOfcards === parseInt(numberOfCardsSelect)
+    })
 
-                for (key in element) {
-                    let cell = row.insertCell();
-                    let text = document.createTextNode(element[key]);
-                    cell.appendChild(text);
-                }
-                index++;
-            }
-
-            function selectedRow() {
-                let index, table = document.getElementById("table");
-
-                for (let i = 1; i < table.rows.length; i++) {
-                    table.rows[i].onclick = function () {
-                        if (typeof index !== "undefined") {
-                            table.rows[index].classList.toggle("selected");
-                        }
-
-                        index = this.rowIndex;
-                        this.classList.toggle("selected");
-                    };
-                }
-            }
-            selectedRow();
-        }
-        generateTable(table, result);
-    });
+    unsetTable();
+    generateTable(result);
+    selectedRow();
 }
